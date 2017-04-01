@@ -11,26 +11,36 @@ public class Converter {
     private Reader reader;
     private Writer writer;
 
-    public Converter(String inputPath, String outputPath){
+    public Converter(String inputPath, String outputPath, int mode){
         this.reader = new Reader(inputPath);
         this.propertiesMap = reader.readCsv(",");
         this.properties = new Properties();
-        setProperties(propertiesMap);
+        setProperties(propertiesMap, mode);
         this.writer = new Writer(outputPath);
         writer.writeToJavaProperties(properties);
     }
 
 
-    private void setProperties(Map<String, String> map){
+    private void setProperties(Map<String, String> map, int mode){
         Iterator mapIterator = map.keySet().iterator();
 
         while(mapIterator.hasNext()) {
             String key = mapIterator.next().toString();
-            String value = map.get(key);
+            String value;
+
+            switch (mode){
+                case 1:
+                    value = Escaper.escapeWithHtml(map.get(key));
+                    break;
+                default:
+                    value = map.get(key);
+                    break;
+            }
 
             properties.setProperty(key, value);
         }
 
     }
+
 
 }
