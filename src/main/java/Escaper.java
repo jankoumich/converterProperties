@@ -5,14 +5,20 @@ import java.util.Map;
  * Created by janko on 01/04/2017.
  */
 public class Escaper {
-    private static Map<String, String> escapeMap;
+    private static Map<String, String> htmlEscapeMap;
+    private final String HTML_ESCAPE_CODES = "htmlEscape.csv";
 
-    public Escaper(){
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("htmlEscape.csv");
-        Reader reader = new Reader(inputStream);
-
-        escapeMap = reader.readCsv(",");
+    public Escaper(int mode){
+        switch (mode){
+            case 1:
+                ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+                InputStream inputStream = classLoader.getResourceAsStream(HTML_ESCAPE_CODES);
+                Reader reader = new Reader(inputStream);
+                htmlEscapeMap = reader.readCsv(",");
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -29,9 +35,9 @@ public class Escaper {
             char c = string.charAt(i);
             String character = String.valueOf(c);
 
-            if(escapeMap.containsKey(character)
+            if(htmlEscapeMap.containsKey(character)
                     & (!character.equals("&") || !character.equals("#") || !character.equals(";"))){
-                String replaceWith = escapeMap.get(character);
+                String replaceWith = htmlEscapeMap.get(character);
                 escaped = escaped.replace(character, replaceWith);
                 System.out.println("Replaced: " + character + " with: " + replaceWith);
             }
