@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 /**
@@ -24,6 +21,7 @@ public class Writer {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             properties.store(fileOutputStream, null);
+
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();

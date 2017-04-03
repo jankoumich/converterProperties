@@ -23,6 +23,7 @@ public class Converter {
 
     private void setProperties(Map<String, String> map, int mode){
         Iterator mapIterator = map.keySet().iterator();
+        Escaper escaper = new Escaper();
 
         while(mapIterator.hasNext()) {
             String key = mapIterator.next().toString();
@@ -30,7 +31,7 @@ public class Converter {
 
             switch (mode){
                 case 1:
-                    value = Escaper.escapeWithHtml(map.get(key));
+                    value = escaper.escapeWithHtml(map.get(key));
                     break;
                 default:
                     value = map.get(key);
@@ -39,8 +40,6 @@ public class Converter {
 
             properties.setProperty(key, value);
         }
-
     }
-
 
 }

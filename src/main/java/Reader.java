@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -8,9 +9,14 @@ import java.util.Scanner;
  */
 public class Reader {
     private String inputPath;
+    private InputStream inputStream;
 
     public Reader(String path){
         this.inputPath = path;
+    }
+
+    public Reader(InputStream inputStream){
+        this.inputStream = inputStream;
     }
 
     /**
@@ -21,7 +27,7 @@ public class Reader {
      public HashMap<String, String> readCsv(String delimiter) {
         HashMap<String, String> hashMap = new HashMap<String, String>();
         String line;
-        Scanner scanner = tryFile(inputPath);
+        Scanner scanner = (inputStream != null) ? tryInputStream(inputStream) : tryPath(inputPath);
 
         while (scanner.hasNextLine()) {
             line = scanner.nextLine();
@@ -30,6 +36,7 @@ public class Reader {
             String value = lineParsed[1].trim();
 
             hashMap.put(key, value);
+            System.out.println(key + " " + value);
         }
 
         scanner.close();
@@ -43,7 +50,7 @@ public class Reader {
      * @param file String that points to the input file
      * @return Scanner File read to process
      */
-    private static Scanner tryFile(String file) {
+    private Scanner tryPath(String file) {
         try {
             return new Scanner(new File(file));
         }
@@ -54,5 +61,9 @@ public class Reader {
         }
 
         return null;
+    }
+
+    private Scanner tryInputStream(InputStream inputStream){
+        return new Scanner(inputStream);
     }
 }
