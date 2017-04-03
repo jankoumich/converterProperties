@@ -11,7 +11,7 @@ public class Escaper {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("htmlEscape.csv");
         Reader reader = new Reader(inputStream);
-//        Reader reader = new Reader("/Users/janko/Desktop/htmlEscape.csv");
+
         escapeMap = reader.readCsv(",");
     }
 
