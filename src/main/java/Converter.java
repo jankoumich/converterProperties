@@ -1,17 +1,16 @@
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * Created by janko on 01/04/2017.
  */
 public class Converter {
-    private Properties properties;
+    private PropertiesBasic properties;
     private Reader reader;
     private Writer writer;
 
     public Converter(String inputPath, String outputPath){
-        this.properties = new Properties();
+        this.properties = new PropertiesBasic();
         this.reader = new Reader(inputPath);
         this.writer = new Writer(outputPath);
     }

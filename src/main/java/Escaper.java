@@ -35,6 +35,7 @@ public class Escaper {
             char c = string.charAt(i);
             String character = String.valueOf(c);
 
+            //TODO: exclude numbers and &#; with a regular expression
             if(htmlEscapeMap.containsKey(character)
                     & (!character.equals("&") || !character.equals("#") || !character.equals(";"))){
                 String replaceWith = htmlEscapeMap.get(character);

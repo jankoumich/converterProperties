@@ -4,7 +4,7 @@ import java.util.Properties;
 /**
  * Created by janko on 01/04/2017.
  */
-public class Writer {
+public class Writer extends Properties{
 
     private File file;
 
@@ -17,7 +17,7 @@ public class Writer {
      *
      * @param properties
      */
-    public void writeToJavaProperties(Properties properties) {
+    public void writeToJavaProperties(PropertiesBasic properties) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             properties.store(fileOutputStream, null);
@@ -30,4 +30,5 @@ public class Writer {
             e.printStackTrace();
         }
     }
+
 }

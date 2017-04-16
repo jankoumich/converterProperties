@@ -36,7 +36,6 @@ public class Reader {
             String value = lineParsed[1].trim();
 
             hashMap.put(key, value);
-            System.out.println(key + " " + value);
         }
 
         scanner.close();
@@ -63,7 +62,6 @@ public class Reader {
         return null;
     }
 
-    private Scanner tryInputStream(InputStream inputStream){
-        return new Scanner(inputStream);
+    private Scanner tryInputStream(InputStream inputStream){return new Scanner(inputStream);
     }
 }
