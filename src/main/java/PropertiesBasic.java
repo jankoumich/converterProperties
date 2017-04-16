@@ -7,7 +7,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 
 /**
- * Created by jkonarze on 4/4/17.
+ * Created by janko on 4/4/17.
  */
 public class PropertiesBasic extends Properties {
 
