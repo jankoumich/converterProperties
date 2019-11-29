@@ -1,3 +1,5 @@
+[](https://github.com/jkonarze/converterProperties/workflows/.github/workflows/ci.yml/badge.svg)
+
 [![codecov](https://codecov.io/gh/jkonarze/converterProperties/branch/master/graph/badge.svg)](https://codecov.io/gh/jkonarze/converterProperties)
 
 ### converterProperties
