@@ -22,11 +22,7 @@ public class Writer extends Properties{
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             properties.store(fileOutputStream, null);
 
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
