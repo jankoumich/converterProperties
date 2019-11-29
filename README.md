@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/jkonarze/converterProperties/branch/master/graph/badge.svg)](https://codecov.io/gh/jkonarze/converterProperties)
+
 ### converterProperties
 
 This project goal is to create a program, which converts any given data input (currently *CSV*) and output property 
