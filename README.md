@@ -1,4 +1,4 @@
-[[Java CI](https://github.com/jkonarze/converterProperties/workflows/Java%20CI/badge.svg)]
+![Java CI](https://github.com/jkonarze/converterProperties/workflows/Java%20CI/badge.svg)
 
 [![codecov](https://codecov.io/gh/jkonarze/converterProperties/branch/master/graph/badge.svg)](https://codecov.io/gh/jkonarze/converterProperties)
 
